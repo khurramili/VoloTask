@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="homeViewModel"
+            type="com.example.volocopterandroidapp.viewmodel.HomeViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.ui.HomeActivity">
+
+        <ImageView
+            android:id="@+id/droneIV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/drone_image"
+            android:src="@drawable/drone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/startStopDrone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:onClick="@{() -> homeViewModel.droneOnAndOff()}"
+            android:text="@string/start_drone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchController"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> homeViewModel.switchController()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/manualControllerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/startStopDrone">
+
+            <ImageButton
+                android:id="@+id/up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/move_drown_up"
+                android:onClick="@{() -> homeViewModel.moveUp()}"
+                android:src="@drawable/baseline_arrow_upward_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/move_drown_down"
+                android:onClick="@{() -> homeViewModel.moveDown()}"
+                android:src="@drawable/baseline_arrow_downward_24"
+                app:layout_constraintEnd_toEndOf="@+id/up"
+                app:layout_constraintStart_toStartOf="@id/up"
+                app:layout_constraintTop_toBottomOf="@id/up" />
+
+            <ImageButton
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@string/move_drown_right"
+                android:onClick="@{() -> homeViewModel.moveRight()}"
+                android:src="@drawable/baseline_arrow_forward_24"
+                app:layout_constraintBottom_toBottomOf="@+id/down"
+                app:layout_constraintStart_toEndOf="@+id/down"
+                app:layout_constraintTop_toTopOf="@+id/down" />
+
+            <ImageButton
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/move_drone_left"
+                android:onClick="@{() -> homeViewModel.moveLeft()}"
+                android:src="@drawable/baseline_arrow_back_24"
+                app:layout_constraintBottom_toBottomOf="@+id/down"
+                app:layout_constraintEnd_toStartOf="@+id/down"
+                app:layout_constraintTop_toTopOf="@+id/down" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

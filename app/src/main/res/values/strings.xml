@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VolocopterAndroidApp</string>
+    <string name="volocopter">Volocopter</string>
+    <string name="welcome_to_the_future">Welcome to the Future</string>
+    <string name="connect">Connect</string>
+    <string name="start_drone">Start Drone</string>
+    <string name="stop_drone">Stop Drone</string>
+    <string name="move_drown_up">Move Drown Up</string>
+    <string name="move_drown_down">Move Drown Down</string>
+    <string name="move_drown_right">Move Drown right</string>
+    <string name="move_drone_left">Move drone left</string>
+    <string name="drone_image">Drone Image</string>
+</resources>
